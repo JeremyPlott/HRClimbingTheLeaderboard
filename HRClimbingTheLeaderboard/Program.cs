@@ -29,11 +29,13 @@ namespace HRClimbingTheLeaderboard {
             }
 
             leaderboard.Sort();
+            var lowest = leaderboard.Min(); // combine both arrays, then use IndexOf for the alice values and return those/export to a new array. Also try hashset
+            var highest = leaderboard.Max();
 
             foreach(var ascore in alice) {
 
-                if(ascore > leaderboard.Max()) { placementarr.Add(1); continue; }
-                if(ascore < leaderboard.Min()) { placementarr.Add(leaderboard.Count + 1); continue; }
+                if(ascore > highest) { placementarr.Add(1); continue; }
+                if(ascore < lowest)  { placementarr.Add(leaderboard.Count + 1); continue; }
 
                 var rank = 0;
 
